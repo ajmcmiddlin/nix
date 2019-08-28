@@ -178,7 +178,7 @@ in
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  home-manager.users.andrew = import ./home-manager;
+  home-manager.users.andrew = import ./home-manager "${machine}";
   users.extraUsers.andrew = {
     createHome = true;
     extraGroups = ["wheel" "video" "audio" "disk" "networkmanager" "docker" "vboxusers" "input" "wireshark"];
