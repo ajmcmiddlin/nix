@@ -16,6 +16,7 @@ in
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       "${pwd}/machine.${machine}.nix"
+      "${pwd}/deps/home-manager/nixos"
     ];
 
   nix.binaryCaches = [
@@ -154,12 +155,12 @@ in
     # displayManager.lightdm.enable = true;
     xkbOptions = "ctrl:nocaps";
 
-    windowManager.default = "xmonad";
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages : [haskellPackages.taffybar];
-    };
+    # windowManager.default = "xmonad";
+    # windowManager.xmonad = {
+    #   enable = true;
+    #   enableContribAndExtras = true;
+    #   extraPackages = haskellPackages : [haskellPackages.taffybar];
+    # };
 
     # synaptics = {
     #   enable = true;
@@ -184,6 +185,7 @@ in
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  home-manager.users.andrew = import ./home-manager;
   users.extraUsers.andrew = {
     createHome = true;
     extraGroups = ["wheel" "video" "audio" "disk" "networkmanager" "docker" "vboxusers" "input" "wireshark"];
