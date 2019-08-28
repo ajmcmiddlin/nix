@@ -148,7 +148,7 @@ in {
     xwiimote
   ] else []);
 
-  home.file."bin" = { source = ./bin; recursive = true; };
+  home.file."bin" = { source = ./dot-files/bin; recursive = true; };
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
