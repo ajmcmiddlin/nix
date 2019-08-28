@@ -6,10 +6,10 @@
 
 let
   hostName = "hermes";
-  pwd = ./.;
 in
 {
-  imports = [ "${pwd}/shares.${hostName}.nix" ];
+  # This needs to be sym linked in because it's encrypted.
+  imports = [ "/etc/nixos/shares.${hostName}.nix" ];
   nix.buildCores = 2;
 
   networking.hostName = "${hostName}";
