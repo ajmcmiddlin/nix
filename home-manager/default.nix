@@ -168,7 +168,7 @@ in {
     recursive = true;
   };
   home.file.".emacs.d/private-ajm" = {
-    source = ./dotfiles/emacs.d/private;
+    source = ./dot-files/emacs.d/private;
     recursive = true;
   };
   programs.emacs = {
@@ -235,11 +235,11 @@ in {
 
   services.pasystray.enable = true;
   home.file.".config/taffybar/taffybar.hs" = {
-    source = ./dotfiles/config/taffybar/taffybar.hs;
+    source = ./dot-files/config/taffybar/taffybar.hs;
     onChange = restart-taffybar;
   };
   # home.file.".config/taffybar/taffybar.css" = {
-  #   source = ./dotfiles/taffybar/taffybar.css;
+  #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
   # };
   services.taffybar.enable = true;
