@@ -10,7 +10,10 @@ let
     haskellPackages = pkgs.haskellPackages.override (old: {
       overrides = pkgs.lib.composeExtensions (old.overrides or (_: _: {})) (self: super: {
         taffybar = self.callCabal2nix "taffybar" taffybar-src { inherit (pkgs) gtk3; };
-        gi-xlib = self.callHackage "gi-xlib" "2.0.2" {};
+        # originally 2.0.7 in Ben's configs
+        # Setup: Encountered missing dependencies:
+        # haskell-gi ==0.21.*, haskell-gi-base ==0.21.*
+        gi-xlib = self.callHackage "gi-xlib" "2.0.4" {};
       });
     });
   };
