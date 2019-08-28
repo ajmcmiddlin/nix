@@ -161,7 +161,6 @@ in {
   programs.chromium.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
-  programs.bash.enableCompletion = true;
 
   home.file.".spacemacs".source = ./dot-files/spacemacs;
   home.file.".emacs.d" = {
