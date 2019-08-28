@@ -37,7 +37,6 @@ in {
     exfat
     feh
     gimp
-    gitAndTools.gitflow
     ghostscript
   ]++
   ( with haskellPackages; [
