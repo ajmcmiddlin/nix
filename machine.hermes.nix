@@ -6,9 +6,10 @@
 
 let
   hostName = "hermes";
+  pwd = ./.;
 in
 {
-  imports = [ "./shares.${hostName}.nix" ];
+  imports = [ "${pwd}/shares.${hostName}.nix" ];
   nix.buildCores = 2;
 
   networking.hostName = "${hostName}";
