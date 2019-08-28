@@ -3,6 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 machine:
 { config, pkgs, ... }:
+let
+  pwd = ./.;
+in
 {
   # Needed for corefonts
   nixpkgs.config.allowUnfree = true;
@@ -12,7 +15,7 @@ machine:
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      "./machine.${machine}.nix"
+      "${pwd}/machine.${machine}.nix"
     ];
 
   nix.binaryCaches = [
