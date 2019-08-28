@@ -192,7 +192,7 @@ in
     isNormalUser = true;
     shell = pkgs.fish;
     uid = 1000;
-    openssh.authorizedKeys.keys = (import ./authorized-keys.nix);
+    openssh.authorizedKeys.keys = (import /etc/nixos/authorized-keys.nix);
   };
 
   # This value determines the NixOS release with which your system is to be
