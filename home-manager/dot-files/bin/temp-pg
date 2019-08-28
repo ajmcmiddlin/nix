@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+script_dir="$(dirname $0)"
+temp_pg_dir="${script_dir}/.temp-pg"
+data_dir="${temp_pg_dir}/PGDATA"
+log="${temp_pg_dir}/log"
+lock_file="${temp_pg_dir}/lock"
+
+function die() {
+  echo "Must provide 'start', 'stop', 'init', or 'teardown' as command"
+  exit 1
+}
+
+function die_lock() {
+  echo "Postgres already running"
+  exit 2
+}
+
+function die_data_dir_exists() {
+  printf "Data dir %s already exists\n" "$data_dir"
+  exit 3
+}
+
+function doInit() {
+  mkdir "${data_dir}"
+  rm -f "$log"
+  initdb -A trust -U postgres -D "$data_dir" -E UTF-8
+}
+
+function doStart() {
+  rm -f "$log"
+  # Taken from postgres-embedded haskell package
+  pg_ctl -w -D "$data_dir" -o "-F" -l "$log" start
+  touch "$lock_file"
+}
+
+function doStop() {
+  pg_ctl -D "$data_dir" stop
+  rm -f "$lock_file"
+}
+
+(( $# < 1 )) && die
+
+case $1 in
+  init)
+    [[ -e "$data_dir" ]] && die_data_dir_exists
+    doInit
+    ;;
+
+  teardown)
+    doStop
+    rm -rf "$data_dir"
+    ;;
+
+  start)
+    [[ -e "$lock_file" ]] && die_lock
+    doStart
+    ;;
+
+  stop)
+    doStop
+    ;;
+
+  *)
+    die
+    ;;
+esac
+
