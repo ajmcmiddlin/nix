@@ -5,6 +5,7 @@ machine:
 { config, pkgs, ... }:
 let
   pwd = ./.;
+  home-manager-src = import "${pwd}/deps/home-manager";
 in
 {
   # Needed for corefonts
@@ -16,7 +17,7 @@ in
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       "${pwd}/machine.${machine}.nix"
-      "${pwd}/deps/home-manager/nixos"
+      "${home-manager-src}/nixos"
     ];
 
   nix.binaryCaches = [
