@@ -13,7 +13,7 @@ let
         # originally 2.0.7 in Ben's configs
         # Setup: Encountered missing dependencies:
         # haskell-gi ==0.21.*, haskell-gi-base ==0.21.*
-        gi-xlib = self.callHackage "gi-xlib" "2.0.4" {};
+        gi-xlib = pkgs.haskell.lib.doJailbreak (self.callHackage "gi-xlib" "2.0.2" {});
       });
     });
   };
