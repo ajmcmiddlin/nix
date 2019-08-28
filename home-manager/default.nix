@@ -10,7 +10,7 @@ in {
   nixpkgs.overlays = [
     (import ./home-overlays/direnv)
     (import ./home-overlays/lorri)
-    (import ./home-overlays/obelisk)
+    # (import ./home-overlays/obelisk)
     (import ./home-overlays/spacemacs)
     (import ./home-overlays/taffybar)
   ];
