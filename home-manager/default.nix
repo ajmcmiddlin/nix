@@ -109,7 +109,6 @@ in {
     docker_compose
     git-crypt
     gitAndTools.gitflow
-    gitAndTools.gitFull
     gitAndTools.gitRemoteGcrypt
     gnumake
     graphviz
