@@ -75,9 +75,9 @@ in {
     slack
     slop
     # For taffybar's SNI tray
-    haskellPackages.status-notifier-item
+    # haskellPackages.status-notifier-item
     syncthing
-    haskellPackages.taffybar
+    # haskellPackages.taffybar
     telnet
     thunderbird
     tigervnc
@@ -146,9 +146,6 @@ in {
     xwiimote
   ] else []);
 
-  #######################
-  # TODO: check below
-  #######################
   home.file."bin" = { source = ./bin; recursive = true; };
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -163,6 +160,8 @@ in {
   programs.direnv.enable = true;
   programs.chromium.enable = true;
   programs.firefox.enable = true;
+  programs.fish.enable = true;
+  programs.bash.enableCompletion = true;
 
   home.file.".spacemacs".source = ./dot-files/spacemacs;
   home.file.".emacs.d" = {
