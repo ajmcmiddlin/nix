@@ -71,7 +71,6 @@ in {
     qtpass
     ranger
     rfkill
-    rxvt_unicode-with-plugins
     samba
     unstable.signal-desktop
     slack
