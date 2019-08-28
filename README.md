@@ -9,10 +9,15 @@ useful to you.
 
 ## Installation
 
-1. Download `update.sh` in the root of the repository and put it in `/etc/nixos`
-2. Download `configuration.nix.example` as `/etc/nixos/configuration.nix`
+1. Sym link `update.sh` in the root of the repository and put it in `/etc/nixos`
+2. Sym link `configuration.nix.example` as `/etc/nixos/configuration.nix`
 3. Edit `/etc/nixos/configuration.nix` such that `default.nix` uses the correct machine.
-4. Run `sudo nixos-rebuild switch** as normal.
+4. Sym link any encrypted files into `/etc/nixos`
+5. Run `sudo nixos-rebuild switch** as normal.
+
+Using github or some other online git repo in `update.sh` ensures you've pushed your config.
+However, in the event you don't have an internet connection, change the path to the git repo to your
+local clone.
 
 ## Machine specific config
 
