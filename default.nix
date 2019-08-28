@@ -98,9 +98,8 @@ in
     pavucontrol
   ]);
 
-  programs.fish.enable = true;
   programs.bash.enableCompletion = true;
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
   programs.wireshark.enable = true;
 
   # Enable VirtualBox (don't install the package)
@@ -113,13 +112,6 @@ in
 
   # Enable yubikey
   services.pcscd.enable = true;
-
-  # Blue light filter
-  services.redshift = {
-    enable = true;
-    latitude = "-27.45817";
-    longitude = "153.03443";
-  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
