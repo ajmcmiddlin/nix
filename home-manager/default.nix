@@ -6,6 +6,8 @@ let
     $DRY_RUN_CMD rm -fr $HOME/.cache/taffybar/
     $DRY_RUN_CMD systemctl --user restart taffybar.service
   '';
+
+  unstable = import <unstable> {};
 in {
   nixpkgs.overlays = [
     (import ./home-overlays/direnv)
