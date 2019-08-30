@@ -99,10 +99,7 @@ in
     pavucontrol
   ]);
 
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-  };
+  programs.bash.enableCompletion = true;
   programs.wireshark.enable = true;
 
   # Enable VirtualBox (don't install the package)
