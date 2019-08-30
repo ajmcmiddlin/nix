@@ -168,6 +168,9 @@ in {
       theme = "steeef";
       plugins = ["ssh-agent"];
     };
+    initExtra = ''
+      zstyle :omz:plugins:ssh-agent identities id_rsa
+    '';
   };
 
   home.file.".config/fish/functions" = {
