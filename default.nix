@@ -99,8 +99,10 @@ in
     pavucontrol
   ]);
 
-  programs.bash.enableCompletion = true;
-  # programs.ssh.startAgent = true;
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
   programs.wireshark.enable = true;
 
   # Enable VirtualBox (don't install the package)
@@ -143,9 +145,9 @@ in
     layout = "us";
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-    displayManager.slim.defaultUser = "andrew";
+    # displayManager.slim.defaultUser = "andrew";
     # Try SLiM as the display manager
-    # displayManager.lightdm.enable = true;
+    displayManager.lightdm.enable = true;
     xkbOptions = "ctrl:nocaps";
 
     # windowManager.default = "xmonad";
