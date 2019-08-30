@@ -166,6 +166,7 @@ in {
     oh-my-zsh = {
       enable = true;
       theme = "steeef";
+      plugins = ["ssh-agent"];
     };
   };
 
