@@ -160,7 +160,6 @@ in {
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
-  home.file.".config/fish/config.fish".source = ./dot-files/config/fish/config.fish;
   home.file.".config/fish/functions" = {
     source = ./dot-files/config/fish/functions;
     recursive = true;
