@@ -243,6 +243,19 @@ in {
   #   inactiveInterval = 10;
   # };
 
+  systemd.user.services.lorri = {
+    description = "lorri daemon";
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${pkgs.lorri}/bin/lorri daemon";
+      ExecStop = "pkill lorri";
+      Restart = "on-failure";
+    };
+    wantedBy = [ "default.target" ];
+  };
+
+  services.lorri.enable = true;
+
   services.xembed-sni-proxy.enable = true;
 
   services.pasystray.enable = true;
