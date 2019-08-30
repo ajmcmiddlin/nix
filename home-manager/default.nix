@@ -250,7 +250,6 @@ in {
     };
 
     Service = {
-      Type = "forking";
       ExecStart = "${pkgs.lorri}/bin/lorri daemon";
       Restart = "on-failure";
     };
