@@ -77,7 +77,6 @@ in {
     # For taffybar's SNI tray
     # haskellPackages.status-notifier-item
     syncthing
-    # haskellPackages.taffybar
     telnet
     thunderbird
     tigervnc
