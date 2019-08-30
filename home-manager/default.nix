@@ -245,14 +245,20 @@ in {
   # };
 
   systemd.user.services.lorri = {
-    description = "lorri daemon";
-    serviceConfig = {
+    Unit = {
+      Description = "lorri daemon";
+    };
+
+    Service = {
       Type = "forking";
       ExecStart = "${pkgs.lorri}/bin/lorri daemon";
       ExecStop = "pkill lorri";
       Restart = "on-failure";
     };
-    wantedBy = [ "default.target" ];
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
   };
 
   services.lorri.enable = true;
