@@ -186,7 +186,8 @@ in {
   programs.emacs = {
     enable  = true;
     package = pkgs.emacs.override { inherit (pkgs) imagemagick; };
-    extraPackages = epkgs: with epkgs; [pdf-tools];
+    # This borks spacemacs when it tries to uninstall tablist.
+    # extraPackages = epkgs: with epkgs; [pdf-tools];
   };
 
   programs.htop.enable = true;
