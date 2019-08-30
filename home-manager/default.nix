@@ -261,7 +261,7 @@ in {
     };
   };
 
-  user.services.lorri.enable = true;
+  # services.lorri.enable = true;
 
   services.xembed-sni-proxy.enable = true;
 
