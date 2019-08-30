@@ -202,13 +202,6 @@ in {
     #shading = 50;
   };
 
-  # programs.zsh = {
-  #   enable = true;
-  #   oh-my-zsh = {
-  #     enable = true;
-  #     theme = "steeef";
-  #   };
-  # };
   programs.vscode.enable = true;
 
   # home.file.".gitmessage".source = ./dotfiles/git/gitmessage;
@@ -229,6 +222,8 @@ in {
     maxCacheTtlSsh = 36000;
     enableSshSupport = true;
   };
+
+  programs.ssh.startAgent = true;
 
   # home.file."backgrounds" = {
   #   source = ./backgrounds;
