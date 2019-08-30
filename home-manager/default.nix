@@ -38,6 +38,7 @@ in {
     feh
     gimp
     ghostscript
+    gnupg
   ]++
   ( with haskellPackages; [
     ghcid
