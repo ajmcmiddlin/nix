@@ -184,7 +184,7 @@ in
     group = "users";
     home = "/home/andrew";
     isNormalUser = true;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     uid = 1000;
     openssh.authorizedKeys.keys = (import /etc/nixos/authorized-keys.nix);
   };
