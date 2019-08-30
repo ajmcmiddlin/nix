@@ -140,8 +140,8 @@ in
   services.xserver = {
     enable = true;
     layout = "us";
-    desktopManager.default = "none";
-    desktopManager.xterm.enable = false;
+    #desktopManager.default = "none";
+    #desktopManager.xterm.enable = false;
     # displayManager.slim.defaultUser = "andrew";
     # Try SLiM as the display manager
     displayManager.lightdm.enable = true;
