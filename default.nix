@@ -100,6 +100,7 @@ in
   ]);
 
   programs.bash.enableCompletion = true;
+  programs.ssh.startAgent = true;
   programs.wireshark.enable = true;
 
   # Enable VirtualBox (don't install the package)

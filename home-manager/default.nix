@@ -223,8 +223,6 @@ in {
     enableSshSupport = true;
   };
 
-  programs.ssh.startAgent = true;
-
   # home.file."backgrounds" = {
   #   source = ./backgrounds;
   #   recursive = true;
