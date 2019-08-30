@@ -168,7 +168,7 @@ in {
       theme = "steeef";
       plugins = ["ssh-agent"];
     };
-    initExtra = ''
+    initExtraBeforeCompInit = ''
       zstyle :omz:plugins:ssh-agent identities id_rsa
     '';
   };
