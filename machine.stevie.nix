@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./shares.nix
-    ];
-
   nix.buildCores = 4;
 
   # Mount our encrypted partition before looking for LVM
@@ -21,5 +16,4 @@
     }
   ];
 
-  networking.hostName = "stevie"; # Define your hostname.
 }

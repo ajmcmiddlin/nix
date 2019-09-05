@@ -18,6 +18,7 @@ in
       /etc/nixos/hardware-configuration.nix
       "${pwd}/machine.${machine}.nix"
       "${home-manager-src}/nixos"
+      "/etc/nixos/shares.${machine}.nix"
     ];
 
   nix.binaryCaches = [
@@ -62,6 +63,7 @@ in
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
+  networking.hostName = "${machine}";
 
   # Select internationalisation properties.
   i18n = {

@@ -4,15 +4,9 @@
 
 { config, pkgs, ... }:
 
-let
-  hostName = "hermes";
-in
 {
-  # This needs to be sym linked in because it's encrypted.
-  imports = [ "/etc/nixos/shares.${hostName}.nix" ];
   nix.buildCores = 2;
 
-  networking.hostName = "${hostName}";
 
   networking.firewall = {
     enable = true;
