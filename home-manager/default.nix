@@ -8,6 +8,23 @@ let
   '';
 
   unstable = import <unstable> {};
+
+  startupItem = {cmd, description}:
+    {
+      Unit = {
+        Description = "${description}";
+      };
+
+      Service = {
+        ExecStart = "${cmd}";
+        Restart = "on-failure";
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+
 in {
   nixpkgs.overlays = [
     (import ./home-overlays/direnv)
@@ -241,22 +258,16 @@ in {
   #   inactiveInterval = 10;
   # };
 
-  systemd.user.services.lorri = {
-    Unit = {
-      Description = "lorri daemon";
-    };
+  systemd.user.services.lorri =
+    startupItem {cmd = "${pkgs.lorri}/bin/lorri daemon"; desription = "lorri daemon"; };
 
-    Service = {
-      ExecStart = "${pkgs.lorri}/bin/lorri daemon";
-      Restart = "on-failure";
-    };
+  systemd.user.services.ownCloud =
+    startupItem {cmd = "${pkgs.owncloud-client}/bin/owncloud"; description = "ownCloud daemon";};
 
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
+  systemd.user.services.volumeicon =
+    startupItem {cmd = "${pkgs.volumeicon}/bin/volumeicon"; description = "volume tray icon";};
 
-  # services.lorri.enable = true;
+  services.xscreensaver.enable = true;
 
   services.xembed-sni-proxy.enable = true;
 
