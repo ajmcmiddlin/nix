@@ -96,7 +96,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(nix-sandbox direnv)
+   dotspacemacs-additional-packages '(direnv)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -519,24 +519,6 @@ before packages are loaded."
                (flycheck-add-next-checker 'haskell-dante
                                           '(warning . haskell-hlint))
                (add-to-list 'flycheck-disabled-checkers 'haskell-stack-ghc)))
-
-  ;; Would be nice to modify the default rather than copy it from code.
-  ;; This is a copy-paste from jyp/dante with nix-new-build added.
-  (setq dante-methods-alist
-    `((styx "styx.yaml" ("styx" "repl" dante-target))
-      (nix-new-build dante-cabal-nix ("nix-shell" "--pure" "--run" (concat "cabal new-repl " dante-target " --builddir=dist/dante")))
-      (nix dante-cabal-nix ("nix-shell" "--pure" "--run" (concat "cabal repl " (or dante-target "") " --builddir=dist/dante")))
-      (impure-nix dante-cabal-nix ("nix-shell" "--run" (concat "cabal repl " (or dante-target "") " --builddir=dist/dante")))
-      (new-build "cabal.project" ("cabal" "new-repl" dante-target "--builddir=dist/dante"))
-      (nix-ghci ,(lambda (d) (directory-files d t "shell.nix\\|default.nix"))
-                ("nix-shell" "--pure" "--run" "ghci" (concat "-hidir " dante-project-root ".ghci-files -odir " dante-project-root ".ghci-files")))
-      ;; (concat "ghci -hidir " dante-project-root ".ghci-files -odir " dante-project-root ".ghci-files")
-      (stack "stack.yaml" ("stack" "repl" dante-target))
-      (mafia "mafia" ("mafia" "repl" dante-target))
-      (bare-cabal ,(lambda (d) (directory-files d t ".cabal$")) ("cabal" "repl" dante-target "--builddir=dist/dante"))
-      (bare-ghci ,(lambda (_) t) ("ghci" "-hidir" (concat dante-project-root ".ghci-files") "-odir" (concat dante-project-root ".ghci-files")))))
-
-  (setq dante-methods '(nix-new-build new-build nix-ghci bare-cabal bare-ghci))
 
   ;; Redefine `nix` to use `new-repl`
   ;; (setcdr (assq 'nix 'dante-repl-command-line-methods-alist)
