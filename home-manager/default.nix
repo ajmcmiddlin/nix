@@ -259,7 +259,7 @@ in {
   # };
 
   systemd.user.services.lorri =
-    startupItem {cmd = "${pkgs.lorri}/bin/lorri daemon"; desription = "lorri daemon"; };
+    startupItem {cmd = "${pkgs.lorri}/bin/lorri daemon"; description = "lorri daemon"; };
 
   systemd.user.services.ownCloud =
     startupItem {cmd = "${pkgs.owncloud-client}/bin/owncloud"; description = "ownCloud daemon";};
