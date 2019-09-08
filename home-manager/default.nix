@@ -191,6 +191,9 @@ in {
     '';
   };
 
+  # Source in .envrc to tell npm to use a packages directory our user owns.
+  home.file.".npm-setup".source = ./dot-files/npm-setup;
+
   home.file.".config/fish/functions" = {
     source = ./dot-files/config/fish/functions;
     recursive = true;
