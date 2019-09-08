@@ -183,11 +183,11 @@ in {
     oh-my-zsh = {
       enable = true;
       theme = "steeef";
-      plugins = ["ssh-agent"];
     };
-    initExtraBeforeCompInit = ''
-      zstyle :omz:plugins:ssh-agent identities id_rsa
-      zstyle :omz:plugins:ssh-agent lifetime 10h
+    initExtra = ''
+      ssh-add -l | grep /home/andrew/.ssh/id_rsa > /dev/null || {
+        ssh-add
+      }
     '';
   };
 
