@@ -187,6 +187,7 @@ in {
     };
     initExtraBeforeCompInit = ''
       zstyle :omz:plugins:ssh-agent identities id_rsa
+      zstyle :omz:plugins:ssh-agent lifetime 10h
     '';
   };
 
@@ -239,9 +240,9 @@ in {
     enable = true;
     defaultCacheTtl = 36000;
     maxCacheTtl = 36000;
-    defaultCacheTtlSsh = 36000;
-    maxCacheTtlSsh = 36000;
-    enableSshSupport = true;
+    # defaultCacheTtlSsh = 36000;
+    # maxCacheTtlSsh = 36000;
+    # enableSshSupport = true;
   };
 
   # home.file."backgrounds" = {
