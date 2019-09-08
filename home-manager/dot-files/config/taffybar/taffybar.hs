@@ -76,7 +76,12 @@ main =
       workspaces = workspacesNew defaultWorkspacesConfig
       note = notifyAreaNew defaultNotificationConfig
       -- wea = weatherNew (defaultWeatherConfig "KMSN") 10
-      mpris2 = mpris2New
+
+      -- MPRIS2 FAILS WITH THIS --- RUN BINARY IN ~/.cache/taffybar TO SEE
+      -- [WARNING] System.Taffybar.Widget.MPRIS2 - Failed to get MPRIS icon: "Failed to get image"
+      -- [WARNING] System.Taffybar.Widget.MPRIS2 - MPRIS failure for: BusName "org.mpris.MediaPlayer2.spotify"
+      -- taffybar-linux-x86_64: Couldn’t recognize the image file format for file “/nix/store/98iqj24k81k9ghxa3wzh99b50fjm0gfv-taffybar-3.2.1-data/share/ghc-8.6.4/x86_64-linux-ghc-8.6.4/taffybar-3.2.1/icons/play.svg” (3)
+      -- mpris2 = mpris2New
       net = networkGraphNew netCfg Nothing
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
@@ -87,7 +92,7 @@ main =
         , barPosition = Top
         , widgetSpacing = 10
         , startWidgets = [ workspaces, note ]
-        , endWidgets = [ clock, tray, batt, net, mem, cpu, mpris2 ]
+        , endWidgets = [ clock, tray, batt, net, mem, cpu ]
         }
   in
     -- TODO: add this back in with taffybar2
