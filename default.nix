@@ -109,7 +109,7 @@ in
   virtualisation.virtualbox.host.enable = true;
   # NOTE: this eats a source build of VirtualBox. Disable if a rebuild is taking too long.
   virtualisation.virtualbox.host.enableExtensionPack = true;
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # List services that you want to enable:
 
