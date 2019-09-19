@@ -231,6 +231,7 @@ in {
     enable = true;
     userSettings = {
       "git.autofetch" = true;
+      "vim.useSystemClipboard" = true;
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
