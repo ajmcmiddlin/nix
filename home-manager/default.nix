@@ -241,7 +241,7 @@ in {
     #   alanz.vscode-hie-server
     #   justusadam.language-haskell
     # ]
-  }
+  };
 
   # home.file.".gitmessage".source = ./dotfiles/git/gitmessage;
   programs.git = {
