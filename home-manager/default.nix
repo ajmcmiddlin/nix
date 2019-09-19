@@ -227,7 +227,20 @@ in {
     #shading = 50;
   };
 
-  programs.vscode.enable = true;
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      "git.autofetch" = true;
+    };
+    # TODO: install and test this stuff/add more extensions
+    # haskell.enable;
+    # haskell.hie.enable;
+    # extensions = with pkgs.vscode-extensions; [
+    #   bbenoist.Nix
+    #   alanz.vscode-hie-server
+    #   justusadam.language-haskell
+    # ]
+  }
 
   # home.file.".gitmessage".source = ./dotfiles/git/gitmessage;
   programs.git = {
@@ -248,14 +261,6 @@ in {
     # enableSshSupport = true;
   };
 
-  # home.file."backgrounds" = {
-  #   source = ./backgrounds;
-  #   recursive = true;
-  # };
-  # services.random-background = {
-  #   enable = true;
-  #   imageDirectory = "%h/backgrounds";
-  # };
   # services.screen-locker = {
   #   enable = true;
   #   lockCmd = "xlock -mode blank";
