@@ -232,6 +232,7 @@ in {
     userSettings = {
       "git.autofetch" = true;
       "vim.useSystemClipboard" = true;
+      "editor.minimap.enabled" = false;
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
