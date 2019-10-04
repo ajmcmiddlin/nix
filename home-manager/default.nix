@@ -125,6 +125,7 @@ in {
     binutils
     docker_compose
     git-crypt
+    git-lfs
     gitAndTools.gitflow
     gitAndTools.gitRemoteGcrypt
     gnumake
