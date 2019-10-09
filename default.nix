@@ -55,7 +55,7 @@ in
       flat-volumes = "no";
     };
     # Get a lightweight package by default. Need full to support BT audio.
-    # package = pkgs.pulseaudioFull;
+    package = pkgs.pulseaudioFull;
   };
 
   # backlight brightness
