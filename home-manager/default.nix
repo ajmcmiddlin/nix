@@ -234,6 +234,7 @@ in {
       "git.autofetch" = true;
       "vim.useSystemClipboard" = true;
       "editor.minimap.enabled" = false;
+      "editor.tabSize" = 2;
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
