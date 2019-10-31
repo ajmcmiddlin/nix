@@ -24,8 +24,6 @@
     }
   ];
 
-  hardware.pulseaudio.package = pkgs.pulseaudioLight.override { jackaudioSupport = true; };
-
   # environment.systemPackages = (with pkgs; [
   #   jack2Full
   # ]);
