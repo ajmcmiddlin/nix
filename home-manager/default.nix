@@ -25,18 +25,7 @@ let
       };
     };
 
-in {
-  nixpkgs.overlays = [
-    (import ./home-overlays/direnv)
-    (import ./home-overlays/lorri)
-    # (import ./home-overlays/obelisk)
-    (import ./home-overlays/spacemacs)
-    (import ./home-overlays/taffybar)
-  ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
+  corePackages = pkgs: with pkgs; [
     arandr
     aspell
     aspellDicts.en
@@ -56,12 +45,6 @@ in {
     gimp
     ghostscript
     gnupg
-  ]++
-  ( with haskellPackages; [
-    ghcid
-    stylish-haskell
-    yeganesh
-  ]) ++ [
     imagemagick
     inkscape
     keepassx
@@ -92,8 +75,6 @@ in {
     unstable.signal-desktop
     slack
     slop
-    # For taffybar's SNI tray
-    # haskellPackages.status-notifier-item
     syncthing
     telnet
     thunderbird
@@ -116,11 +97,15 @@ in {
     xsel
     parcellite
     xdotool
-  ] ++ [ # GAMES
+  ];
+
+  games = pkgs: with pkgs; [
     #unstable.crawlTiles
     steam
     discord
-  ] ++ [ # DEV
+  ];
+
+  devPackages = pkgs: with pkgs; [
     ansible
     binutils
     docker_compose
@@ -139,29 +124,55 @@ in {
     sqlite-interactive
     sublime3
     vagrant
-  ] ++ [ # MEDIA
+  ];
+
+  mediaPackages = pkgs: with pkgs; [
     mplayer
     ffmpeg
     spotify
     vlc
     unstable.youtube-dl
-  ] ++ (if machine == "hermes" then [
-    # RECORDING
+  ];
+
+  recordingPackages = pkgs: with pkgs; [
     ardour
     infamousPlugins
     audacity
 
     jack2Full
     qjackctl
+  ];
 
-    # BLUETOOTH
+  wiimotePackages = pkgs: with pkgs; [
     blueman
     (pkgs.bluez.override { enableWiimote = true; })
 
     # This comes from an overlay and doesn't quite work atm
     # xf86-input-xwiimote
     xwiimote
-  ] else []);
+  ];
+
+in {
+  nixpkgs.overlays = [
+    (import ./home-overlays/direnv)
+    (import ./home-overlays/lorri)
+    # (import ./home-overlays/obelisk)
+    (import ./home-overlays/spacemacs)
+    (import ./home-overlays/taffybar)
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
+  home.packages =
+       corePackages pkgs
+    ++ mediaPackages pkgs 
+    ++ devPackages pkgs
+    ++ wiimotePackages pkgs
+    ++ (
+      if (machine == "hermes") then
+        (games pkgs) ++ (recordingPackages pkgs)
+      else []
+    );
 
   home.file."bin" = { source = ./dot-files/bin; recursive = true; };
   home.sessionVariables = {
