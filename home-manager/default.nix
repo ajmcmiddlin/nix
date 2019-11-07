@@ -343,7 +343,7 @@ in {
       shortcuts = {
         close = "ctrl+space";
         close_all = "ctrl+shift+space";
-        history = "ctrl+alt+grave";
+        history = "mod1+grave";
         context = "ctrl+shift+period";
       };
       urgency_low = {
