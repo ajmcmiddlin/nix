@@ -49,7 +49,6 @@ myKeys conf@XConfig {modMask = modm} =
       xK_X86AudioPrev         = 0x1008ff16
       xK_X86AudioNext         = 0x1008ff17
       spotify c               = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player." <> c
-      spotifyPlayPause        = "PlayPause"
       kees =
         M.fromList [ ((0, XT.xK_Print), spawn "maim -c 1,0,0,0.6 -s ~/screenshots/$(date +%F_%T).png")
                    , ((modm, XT.xK_Print), spawn "maim -s --format png -c 1,0,0,0.6 /dev/stdout | xclip -selection clipboard -t image/png -i")
@@ -89,7 +88,6 @@ myManageHook =
              , className =? "Thunderbird" --> doShift "8:Mail"
              -- Below is the class name for Signal (launched via Chrome)
              , appName =? "Signal" --> doShift "9:Chat"
-             , className =? "QtPass" --> doShift "7:Pass"
              , className =? "Spotify" --> doShift "4:Music"
              , isFullscreen --> doFullFloat
              ]
