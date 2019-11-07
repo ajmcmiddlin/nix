@@ -82,6 +82,7 @@ in
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      source-code-pro
       terminus_font # for hidpi screens, large fonts
       ubuntu_font_family  # Ubuntu fonts
     ];
