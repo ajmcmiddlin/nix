@@ -70,6 +70,7 @@ let
     python3
     qtpass
     ranger
+    remmina
     rfkill
     samba
     unstable.signal-desktop
