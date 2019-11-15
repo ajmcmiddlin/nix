@@ -41,6 +41,7 @@ in
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
+    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
   hardware.bluetooth = {
@@ -50,6 +51,7 @@ in
 
   hardware.pulseaudio = {
     enable = true;
+    support32Bit = true;
     daemon.config = {
       # Allow app volumes to be set independently of master
       flat-volumes = "no";
