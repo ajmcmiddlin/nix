@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-machine:
+{ machine, enableVirtualBoxExtensions ? true }:
 { config, pkgs, ... }:
 let
   pwd = ./.;
@@ -41,6 +41,7 @@ in
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
+    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
   hardware.bluetooth = {
@@ -50,6 +51,7 @@ in
 
   hardware.pulseaudio = {
     enable = true;
+    support32Bit = true;
     daemon.config = {
       # Allow app volumes to be set independently of master
       flat-volumes = "no";
@@ -109,7 +111,7 @@ in
   # Enable VirtualBox (don't install the package)
   virtualisation.virtualbox.host.enable = true;
   # NOTE: this eats a source build of VirtualBox. Disable if a rebuild is taking too long.
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enableExtensionPack = enableVirtualBoxExtensions;
   virtualisation.docker.enable = true;
 
   # List services that you want to enable:
