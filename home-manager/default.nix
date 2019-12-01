@@ -93,7 +93,6 @@ let
     xorg.xev
     xscreensaver
     yubioath-desktop
-    wine
 
     # For clipboard syncing
     xsel
