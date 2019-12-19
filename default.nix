@@ -19,7 +19,7 @@ in
       "${pwd}/machine.${machine}.nix"
       "${home-manager-src}/nixos"
       "/etc/nixos/shares.${machine}.nix"
-      "${pwd}/sw-kibana.nix"
+      "/etc/nixos/sw-kibana.nix"
     ];
 
   nix.binaryCaches = [
