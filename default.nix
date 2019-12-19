@@ -101,6 +101,8 @@ in
     exfat-utils
     fuse_exfat
 
+    neovim
+
     pavucontrol
   ]);
 

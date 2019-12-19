@@ -56,7 +56,6 @@ let
     gnome3.gnome_settings_daemon
     gnome3.dconf
 
-    neovim
     nethogs
     networkmanagerapplet
     nix-prefetch-scripts
