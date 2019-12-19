@@ -1,2 +1,3 @@
 shares.*.nix filter=git-crypt diff=git-crypt
 authorized-keys.nix filter=git-crypt diff=git-crypt
+sw-kibana.nix filter=git-crypt diff=git-crypt
