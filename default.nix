@@ -19,6 +19,7 @@ in
       "${pwd}/machine.${machine}.nix"
       "${home-manager-src}/nixos"
       "/etc/nixos/shares.${machine}.nix"
+      "${pwd}/sw-kibana.nix"
     ];
 
   nix.binaryCaches = [
@@ -123,10 +124,6 @@ in
   # NOTE: this eats a source build of VirtualBox. Disable if a rebuild is taking too long.
   virtualisation.virtualbox.host.enableExtensionPack = enableVirtualBoxExtensions;
   virtualisation.docker.enable = true;
-
-  containers.sw-kibana = {
-    config = (import ./sw-kibana.nix);
-  };
 
   # List services that you want to enable:
 
