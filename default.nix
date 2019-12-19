@@ -67,6 +67,14 @@ in
   networking.networkmanager.enable = true;
   networking.hostName = "${machine}";
 
+  # Do NAT for a container through WiFi
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = ["ve-sw-kibana+"];
+  networking.nat.externalInterface = "wlp2s0";
+
+  # Tell network manager not to mess with our container interfaces
+  networking.networkmanager.unmanaged = ["interface-name:ve-*"];
+
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -115,6 +123,10 @@ in
   # NOTE: this eats a source build of VirtualBox. Disable if a rebuild is taking too long.
   virtualisation.virtualbox.host.enableExtensionPack = enableVirtualBoxExtensions;
   virtualisation.docker.enable = true;
+
+  containers.sw-kibana = {
+    config = import ./sw-kibana.nix;
+  };
 
   # List services that you want to enable:
 
