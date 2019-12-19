@@ -68,12 +68,12 @@ in
   networking.hostName = "${machine}";
 
   # Do NAT for a container through WiFi
-  networking.nat.enable = true;
-  networking.nat.internalInterfaces = ["ve-sw-kibana+"];
-  networking.nat.externalInterface = "wlp2s0";
+  # networking.nat.enable = true;
+  # networking.nat.internalInterfaces = ["ve-sw-kibana+"];
+  # networking.nat.externalInterface = "wlp2s0";
 
   # Tell network manager not to mess with our container interfaces
-  networking.networkmanager.unmanaged = ["interface-name:ve-*"];
+  # networking.networkmanager.unmanaged = ["interface-name:ve-*"];
 
   # Select internationalisation properties.
   i18n = {
