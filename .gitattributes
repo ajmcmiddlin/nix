@@ -1,3 +1,3 @@
-shares.hermes.nix filter=git-crypt diff=git-crypt
-shares.stevie.nix filter=git-crypt diff=git-crypt
+# shares.hermes.nix filter=git-crypt diff=git-crypt
+shares.*.nix filter=git-crypt diff=git-crypt
 authorized-keys.nix filter=git-crypt diff=git-crypt
