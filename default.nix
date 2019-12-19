@@ -125,7 +125,7 @@ in
   virtualisation.docker.enable = true;
 
   containers.sw-kibana = {
-    config = import ./sw-kibana.nix;
+    config = (import ./sw-kibana.nix);
   };
 
   # List services that you want to enable:
