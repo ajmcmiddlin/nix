@@ -197,7 +197,7 @@ in {
         after = [ "network.target" "elasticsearch.service" ];
         environment = {
           BABEL_CACHE_PATH = "${cfg.dataDir}/.babelcache.json";
-          # KIBANA_HOME = "/var/lib/kibana";
+          KIBANA_HOME = "/var/lib/kibana";
         };
         serviceConfig = {
           ExecStart =
