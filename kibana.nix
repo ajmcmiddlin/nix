@@ -163,7 +163,7 @@ in {
     pluginDirs = mkOption {
       description = "Paths to additional plugin directories. Wrapper for --plugin-dir.";
       default = [];
-      example = [/var/lib/kibana/plugins];
+      example = [ "/var/lib/kibana/plugins" ];
       type = types.listOf types.path;
     };
 
@@ -188,20 +188,28 @@ in {
           "The option services.kibana.elasticsearch.hosts is only valid for kibana >= 6.6.";
       }
     ];
-    systemd.services.kibana = {
-      description = "Kibana Service";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "elasticsearch.service" ];
-      environment = { BABEL_CACHE_PATH = "${cfg.dataDir}/.babelcache.json"; };
-      serviceConfig = {
-        ExecStart =
-          "${cfg.package}/bin/kibana" +
-          " --config ${cfgFile}" +
-          " --path.data ${cfg.dataDir}" +
-          " " + (concatMapStringsSep " " (pth: "--plugin-dir=" + pth) cfg.pluginDirs);
-        User = "kibana";
-        WorkingDirectory = cfg.dataDir;
-      };
+    systemd.services.kibana =
+      let
+        defaultPluginDirs = [
+          "${pkgs.kibana}/libexec/kibana/plugins"
+          "${pkgs.kibana}/libexec/libana/src/legacy/core_plugins"
+        ];
+        pluginDirs = cfg.pluginDirs + defaultPluginDirs;
+        pluginDirOptions = concatMapStringsSep " " (pth: "--plugin-dir=" + pth) pluginDirs;
+      in {
+        description = "Kibana Service";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" "elasticsearch.service" ];
+        environment = { BABEL_CACHE_PATH = "${cfg.dataDir}/.babelcache.json"; };
+        serviceConfig = {
+          ExecStart =
+            "${cfg.package}/bin/kibana" +
+            " --config ${cfgFile}" +
+            " --path.data ${cfg.dataDir}" +
+            " ${pluginDirOptions}";
+          User = "kibana";
+          WorkingDirectory = cfg.dataDir;
+        };
     };
 
     environment.systemPackages = [ cfg.package ];
