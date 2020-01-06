@@ -195,7 +195,7 @@ in {
           # "${pkgs.kibana}/libexec/kibana/src/legacy/core_plugins"
         ];
         pluginDirs = cfg.pluginDirs ++ defaultPluginDirs;
-        pluginDirOptions = concatMapStringsSep " " (pth: "--plugin-dir=" + pth) pluginDirs;
+        pluginDirOptions = concatMapStringsSep " " (pth: "--plugin-dir ${pth}") pluginDirs;
       in {
         description = "Kibana Service";
         wantedBy = [ "multi-user.target" ];
