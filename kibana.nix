@@ -191,8 +191,8 @@ in {
     systemd.services.kibana =
       let
         defaultPluginDirs = [
-          # "${pkgs.kibana}/libexec/kibana/plugins"
-          # "${pkgs.kibana}/libexec/kibana/src/legacy/core_plugins"
+          "${pkgs.kibana}/libexec/kibana/plugins"
+          "${pkgs.kibana}/libexec/kibana/src/legacy/core_plugins"
         ];
         pluginDirs = cfg.pluginDirs ++ defaultPluginDirs;
         pluginDirOptions = concatMapStringsSep " " (pth: "--plugin-dir ${pth}") pluginDirs;
