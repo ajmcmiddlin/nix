@@ -164,7 +164,7 @@ in {
       description = "Paths to additional plugin directories. Wrapper for --plugin-dir.";
       default = [];
       example = [/var/lib/kibana/plugins];
-      type = types.listOf types.path;
+      type = types.listOf types.str;
     };
 
     extraConf = mkOption {
