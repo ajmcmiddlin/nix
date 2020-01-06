@@ -192,9 +192,9 @@ in {
       let
         defaultPluginDirs = [
           "${pkgs.kibana}/libexec/kibana/plugins"
-          "${pkgs.kibana}/libexec/libana/src/legacy/core_plugins"
+          "${pkgs.kibana}/libexec/kibana/src/legacy/core_plugins"
         ];
-        pluginDirs = cfg.pluginDirs + defaultPluginDirs;
+        pluginDirs = cfg.pluginDirs ++ defaultPluginDirs;
         pluginDirOptions = concatMapStringsSep " " (pth: "--plugin-dir=" + pth) pluginDirs;
       in {
         description = "Kibana Service";
