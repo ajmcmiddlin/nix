@@ -11,6 +11,9 @@ in
   # Needed for corefonts
   nixpkgs.config.allowUnfree = true;
 
+  # modified kibana module in imports below
+  disabledModules = [ "services/search/kibana.nix" ];
+
   # nixpkgs.overlays = [ (import /home/andrew/.config/nixpkgs/overlays) ];
 
   imports =
@@ -19,6 +22,7 @@ in
       "${pwd}/machine.${machine}.nix"
       "${home-manager-src}/nixos"
       "/etc/nixos/shares.${machine}.nix"
+      "${pwd}/kibana.nix"
       "/etc/nixos/sw-kibana.nix"
     ];
 
