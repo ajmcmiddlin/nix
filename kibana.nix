@@ -198,7 +198,7 @@ in {
           "${cfg.package}/bin/kibana" +
           " --config ${cfgFile}" +
           " --path.data ${cfg.dataDir}" +
-          (lib.concatMapStringSep " " (pth: "--plugin-dir=${pth}") cfg.pluginDirs);
+          (concatMapStringSep " " (pth: "--plugin-dir=${pth}") cfg.pluginDirs);
         User = "kibana";
         WorkingDirectory = cfg.dataDir;
       };
