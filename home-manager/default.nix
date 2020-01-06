@@ -30,6 +30,7 @@ let
     aspell
     aspellDicts.en
     cabal2nix
+    baobab
     bind
     brightnessctl
     calibre
