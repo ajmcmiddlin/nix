@@ -104,6 +104,8 @@ in
     neovim
 
     pavucontrol
+    unzip
+    zip
   ]);
 
   programs.bash.enableCompletion = true;

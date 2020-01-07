@@ -84,7 +84,6 @@ let
     transmission-gtk
     udisks2
     upower
-    unzip
     volumeicon
     wget
     which
