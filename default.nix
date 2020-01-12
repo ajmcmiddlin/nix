@@ -58,6 +58,7 @@ in
     };
     # Get a lightweight package by default. Need full to support BT audio.
     package = pkgs.pulseaudioFull;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
   };
 
   # backlight brightness
