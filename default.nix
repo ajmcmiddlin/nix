@@ -178,6 +178,8 @@ in
     # };
 
     libinput = {
+      # This is the trackpad path on my x260. Might need to switch it up on the dell.
+      dev = "/dev/input/event11";
       enable = true;
       naturalScrolling = true;
     };
