@@ -19,7 +19,6 @@ in
       "${pwd}/machine.${machine}.nix"
       "${home-manager-src}/nixos"
       "/etc/nixos/shares.${machine}.nix"
-      "/etc/nixos/sw-kibana.nix"
     ];
 
   nix.binaryCaches = [
@@ -59,6 +58,7 @@ in
     };
     # Get a lightweight package by default. Need full to support BT audio.
     package = pkgs.pulseaudioFull;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
   };
 
   # backlight brightness
@@ -67,14 +67,6 @@ in
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
   networking.hostName = "${machine}";
-
-  # Do NAT for a container through WiFi
-  # networking.nat.enable = true;
-  # networking.nat.internalInterfaces = ["ve-sw-kibana+"];
-  # networking.nat.externalInterface = "wlp2s0";
-
-  # Tell network manager not to mess with our container interfaces
-  # networking.networkmanager.unmanaged = ["interface-name:ve-*"];
 
   # Select internationalisation properties.
   i18n = {
@@ -113,6 +105,8 @@ in
     neovim
 
     pavucontrol
+    unzip
+    zip
   ]);
 
   programs.bash.enableCompletion = true;

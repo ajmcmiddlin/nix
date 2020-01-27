@@ -7,7 +7,7 @@ let
     $DRY_RUN_CMD systemctl --user restart taffybar.service
   '';
 
-  unstable = import <unstable> {};
+  unstable = import <unstable> { config.allowUnfree = true; };
 
   startupItem = {cmd, description}:
     {
@@ -74,7 +74,6 @@ let
     rfkill
     samba
     unstable.signal-desktop
-    slack
     slop
     syncthing
     telnet
@@ -85,7 +84,6 @@ let
     transmission-gtk
     udisks2
     upower
-    unzip
     volumeicon
     wget
     which
@@ -124,6 +122,7 @@ let
     slack
     sqlite-interactive
     sublime3
+    unstable.teams
     vagrant
   ];
 
@@ -166,7 +165,7 @@ in {
 
   home.packages =
        corePackages pkgs
-    ++ mediaPackages pkgs 
+    ++ mediaPackages pkgs
     ++ devPackages pkgs
     ++ wiimotePackages pkgs
     ++ (
