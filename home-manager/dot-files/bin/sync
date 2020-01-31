@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# TODO: make the shebang a nix-shell invocation that brings in inotifyTools
+
+# Believe this works, but havent' tested yet.
+declare -r src="$1"
+declare -r dest="$2"
+
+while inotifywait -r -e modify,create,delete,move $src; do
+    rsync -av $src $dest
+done
