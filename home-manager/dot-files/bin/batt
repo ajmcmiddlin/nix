@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+upower -d | grep -A 14 "^Device.*DisplayDevice$" | tail -3 | head -n 2
