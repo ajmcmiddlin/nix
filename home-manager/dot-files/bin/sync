@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-# TODO: make the shebang a nix-shell invocation that brings in inotifyTools
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p inotifyTools
 
 # Believe this works, but havent' tested yet.
 declare -r src="$1"
