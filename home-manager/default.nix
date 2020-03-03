@@ -246,6 +246,10 @@ in {
       "vim.useSystemClipboard" = true;
       "editor.minimap.enabled" = false;
       "editor.tabSize" = 2;
+      "[markdown]" = {
+        "editor.wordWrapColumn" = 100;
+        "editor.wordWrap" = "wordWrapColumn";
+      };
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
