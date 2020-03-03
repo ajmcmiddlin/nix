@@ -247,6 +247,7 @@ in {
       "editor.minimap.enabled" = false;
       "editor.tabSize" = 2;
       "rewrap.wrappingColumn" = 100;
+      "rewrap.autoWrap.enabled" = true;
 
       "[markdown]" = {
         "editor.wordWrapColumn" = 100;
