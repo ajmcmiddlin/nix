@@ -246,6 +246,8 @@ in {
       "vim.useSystemClipboard" = true;
       "editor.minimap.enabled" = false;
       "editor.tabSize" = 2;
+      "editor.wordWrapColumn" = 100;
+
       "[markdown]" = {
         "editor.wordWrapColumn" = 100;
         "editor.wordWrap" = "wordWrapColumn";
