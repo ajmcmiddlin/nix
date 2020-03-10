@@ -138,7 +138,7 @@ let
     ardour
     infamousPlugins
     audacity
-    tuxguitar
+    unstable.tuxguitar
 
     jack2Full
     qjackctl
