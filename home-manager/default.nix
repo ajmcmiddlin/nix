@@ -312,7 +312,7 @@ in {
     enable = true;
     serverAddress = "192.168.1.101";
     screenName = "stevie";
-  }
+  };
   # home.file.".config/taffybar/taffybar.css" = {
   #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
