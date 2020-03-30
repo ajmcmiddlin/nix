@@ -119,6 +119,12 @@ in
 
   # List services that you want to enable:
 
+  services.synergy.client = {
+    enable = true;
+    serverAddress = "192.168.1.101";
+    screenName = "stevie";
+  };
+
   # Enable yubikey
   services.pcscd.enable = true;
 
