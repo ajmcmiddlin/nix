@@ -248,6 +248,7 @@ in {
       "editor.minimap.enabled" = false;
       "editor.tabSize" = 2;
       "rewrap.wrappingColumn" = 100;
+      "rewrap.autoWrap.enabled" = true;
 
       "[markdown]" = {
         "editor.wordWrapColumn" = 100;
@@ -307,6 +308,7 @@ in {
     source = ./dot-files/config/taffybar/taffybar.hs;
     onChange = restart-taffybar;
   };
+
   # home.file.".config/taffybar/taffybar.css" = {
   #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
