@@ -139,12 +139,6 @@ in
   services.upower.enable = true;
   powerManagement.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # Zero configuration DNS broadcast
   services.avahi.enable = true;
 
@@ -155,41 +149,17 @@ in
   services.xserver = {
     enable = true;
     layout = "us";
-    #desktopManager.default = "none";
-    #desktopManager.xterm.enable = false;
-    # displayManager.slim.defaultUser = "andrew";
-    # Try SLiM as the display manager
+    # Needed for home manager now apparently?
+    # https://github.com/rycee/home-manager/issues/1116
+    desktopManager.xterm.enable = true;
     displayManager.lightdm.enable = true;
     xkbOptions = "ctrl:nocaps";
-
-    # windowManager.default = "xmonad";
-    # windowManager.xmonad = {
-    #   enable = true;
-    #   enableContribAndExtras = true;
-    #   extraPackages = haskellPackages : [haskellPackages.taffybar];
-    # };
-
-    # synaptics = {
-    #   enable = true;
-    #   twoFingerScroll = true;
-    #   horizontalScroll = true;
-    #   tapButtons = true;
-    #   palmDetect = true;
-    #   additionalOptions = ''
-    #   Option            "VertScrollDelta"  "-111"
-    #   Option            "HorizScrollDelta" "-111"
-    #   '';
-    # };
 
     libinput = {
       enable = true;
       naturalScrolling = false;
     };
   };
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   home-manager.users.andrew = import ./home-manager "${machine}";
