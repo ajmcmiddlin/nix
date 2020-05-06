@@ -59,9 +59,6 @@ in
     extraModules = [ pkgs.pulseaudio-modules-bt ];
   };
 
-  # backlight brightness
-  hardware.brightnessctl.enable = true;
-
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
   networking.hostName = "${machine}";

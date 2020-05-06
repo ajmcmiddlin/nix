@@ -322,8 +322,6 @@ in {
 
   services.redshift = {
     enable = true;
-    # brightness.day = "1.0";
-    # brightness.night = "0.7";
     latitude = "-27.45817";
     longitude = "153.03443";
   };
