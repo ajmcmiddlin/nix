@@ -16,13 +16,12 @@
   boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
   # LUKS root device
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/sda2";
       preLVM = true;
-    }
-  ];
+    };
+  };
 
   # environment.systemPackages = (with pkgs; [
   #   jack2Full
