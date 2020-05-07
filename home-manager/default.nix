@@ -1,11 +1,11 @@
 machine:
 { config, pkgs, ... }:
 let
-  restart-taffybar = ''
-    echo "Restarting taffybar..."
-    $DRY_RUN_CMD rm -fr $HOME/.cache/taffybar/
-    $DRY_RUN_CMD systemctl --user restart taffybar.service
-  '';
+  # restart-taffybar = ''
+  #   echo "Restarting taffybar..."
+  #   $DRY_RUN_CMD rm -fr $HOME/.cache/taffybar/
+  #   $DRY_RUN_CMD systemctl --user restart taffybar.service
+  # '';
 
   unstable = import <unstable> { config.allowUnfree = true; };
 
@@ -159,7 +159,7 @@ in {
     (import ./home-overlays/lorri)
     # (import ./home-overlays/obelisk)
     (import ./home-overlays/spacemacs)
-    (import ./home-overlays/taffybar)
+    # (import ./home-overlays/taffybar)
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -304,16 +304,16 @@ in {
   services.xembed-sni-proxy.enable = true;
 
   services.pasystray.enable = true;
-  home.file.".config/taffybar/taffybar.hs" = {
-    source = ./dot-files/config/taffybar/taffybar.hs;
-    onChange = restart-taffybar;
-  };
+  # home.file.".config/taffybar/taffybar.hs" = {
+  #   source = ./dot-files/config/taffybar/taffybar.hs;
+  #   onChange = restart-taffybar;
+  # };
 
   # home.file.".config/taffybar/taffybar.css" = {
   #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
   # };
-  services.taffybar.enable = true;
+  # services.taffybar.enable = true;
   services.status-notifier-watcher.enable = true;
   services.blueman-applet.enable = true;
   # services.flameshot.enable = true;
@@ -381,7 +381,7 @@ in {
       enableContribAndExtras = true;
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
-        hpkgs.taffybar
+        # hpkgs.taffybar
       ];
       config = ./dot-files/xmonad/xmonad.hs;
     };
