@@ -383,7 +383,7 @@ in {
       enableContribAndExtras = true;
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
-        hpkgs.taffybar
+        # hpkgs.taffybar
       ];
       config = ./dot-files/xmonad/xmonad.hs;
     };
