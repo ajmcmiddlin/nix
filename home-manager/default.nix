@@ -315,7 +315,7 @@ in {
   #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
   # };
-  services.taffybar.enable = true;
+  # services.taffybar.enable = true;
   services.status-notifier-watcher.enable = true;
   services.blueman-applet.enable = true;
   # services.flameshot.enable = true;
