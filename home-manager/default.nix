@@ -146,7 +146,9 @@ let
 
   wiimotePackages = pkgs: with pkgs; [
     blueman
-    (pkgs.bluez.override { enableWiimote = true; })
+    # enableWiimote isn't an option anymore?
+    # (pkgs.bluez.override { enableWiimote = true; })
+    bluez
 
     # This comes from an overlay and doesn't quite work atm
     # xf86-input-xwiimote
@@ -313,7 +315,7 @@ in {
   #   source = ./dot-files/taffybar/taffybar.css;
   #   onChange = restart-taffybar;
   # };
-  # services.taffybar.enable = true;
+  services.taffybar.enable = true;
   services.status-notifier-watcher.enable = true;
   services.blueman-applet.enable = true;
   # services.flameshot.enable = true;
@@ -381,7 +383,7 @@ in {
       enableContribAndExtras = true;
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
-        # hpkgs.taffybar
+        hpkgs.taffybar
       ];
       config = ./dot-files/xmonad/xmonad.hs;
     };
