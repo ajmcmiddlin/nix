@@ -1,12 +1,6 @@
 machine:
 { config, pkgs, ... }:
 let
-  # restart-taffybar = ''
-  #   echo "Restarting taffybar..."
-  #   $DRY_RUN_CMD rm -fr $HOME/.cache/taffybar/
-  #   $DRY_RUN_CMD systemctl --user restart taffybar.service
-  # '';
-
   unstable = import <unstable> { config.allowUnfree = true; };
 
   startupItem = {cmd, description}:
@@ -277,13 +271,13 @@ in {
 
   # programs.zathura.enable = true;
 
-  services.gpg-agent = {
+  programs.gnupg.agent = {
     enable = true;
     defaultCacheTtl = 36000;
     maxCacheTtl = 36000;
-    # defaultCacheTtlSsh = 36000;
-    # maxCacheTtlSsh = 36000;
-    # enableSshSupport = true;
+    extraConfig = ''
+      pinentry-program ${pkgs.pinentry.gnome3}/bin/pinentry-gnome3
+    '';
   };
 
   # services.screen-locker = {
