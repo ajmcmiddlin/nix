@@ -271,7 +271,7 @@ in {
 
   # programs.zathura.enable = true;
 
-  programs.gpg-agent = {
+  services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 36000;
     maxCacheTtl = 36000;
