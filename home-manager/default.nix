@@ -275,9 +275,6 @@ in {
     enable = true;
     defaultCacheTtl = 36000;
     maxCacheTtl = 36000;
-    # extraConfig = ''
-    #   pinentry-program ${pkgs.pinentry.gnome3}/bin/pinentry-gnome3
-    # '';
   };
 
   # services.screen-locker = {
@@ -300,16 +297,6 @@ in {
   services.xembed-sni-proxy.enable = true;
 
   services.pasystray.enable = true;
-  # home.file.".config/taffybar/taffybar.hs" = {
-  #   source = ./dot-files/config/taffybar/taffybar.hs;
-  #   onChange = restart-taffybar;
-  # };
-
-  # home.file.".config/taffybar/taffybar.css" = {
-  #   source = ./dot-files/taffybar/taffybar.css;
-  #   onChange = restart-taffybar;
-  # };
-  # services.taffybar.enable = true;
   services.status-notifier-watcher.enable = true;
   services.blueman-applet.enable = true;
   # services.flameshot.enable = true;
@@ -377,7 +364,6 @@ in {
       enableContribAndExtras = true;
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
-        # hpkgs.taffybar
       ];
       config = ./dot-files/xmonad/xmonad.hs;
     };
