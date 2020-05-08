@@ -275,9 +275,9 @@ in {
     enable = true;
     defaultCacheTtl = 36000;
     maxCacheTtl = 36000;
-    extraConfig = ''
-      pinentry-program ${pkgs.pinentry.gnome3}/bin/pinentry-gnome3
-    '';
+    # extraConfig = ''
+    #   pinentry-program ${pkgs.pinentry.gnome3}/bin/pinentry-gnome3
+    # '';
   };
 
   # services.screen-locker = {
