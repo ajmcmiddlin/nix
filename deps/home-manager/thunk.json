@@ -1,5 +1,6 @@
 {
   "url": "https://github.com/rycee/home-manager",
+  "ref": "refs/heads/release-20.03",
   "rev": "a378bccd609c159fa8d421233b9c5eae04f02042",
   "date": "2020-04-30T09:44:00+02:00",
   "sha256": "1cfh0aj60qriadvn5xvsp24p1xr06g68m3pfvzwahv2bd2cg261r",
