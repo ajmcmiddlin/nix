@@ -108,6 +108,7 @@ let
     gitAndTools.gitRemoteGcrypt
     gnumake
     graphviz
+    jq
     lorri
     nixops
     patchelf
