@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  nix.buildCores = 4;
+  nix.buildCores = 3;
 
   # Mount our encrypted partition before looking for LVM
   boot.initrd.luks.devices = {
