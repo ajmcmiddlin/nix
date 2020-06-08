@@ -7,6 +7,7 @@ import           XMonad                           (Layout, ManageHook, Window,
                                                    mod4Mask, spawn, windows,
                                                    xmonad, (.|.), (|||))
 import           XMonad.Actions.SpawnOn           (manageSpawn, spawnOn)
+import           XMonad.Config.Xfce               (xfceConfig)
 import           XMonad.Hooks.EwmhDesktops        (ewmh, fullscreenEventHook)
 import           XMonad.Hooks.ManageDocks         (avoidStruts, docks,
                                                    manageDocks)
@@ -17,13 +18,11 @@ import           XMonad.ManageHook                (appName, className,
                                                    composeAll, doShift, (-->),
                                                    (<+>), (=?))
 
--- import           System.Taffybar.Support.PagerHints (pagerHints)
-
 -- docks: add dock (panel) functionality to your configuration
 -- ewmh: https://en.wikipedia.org/wiki/Extended_Window_Manager_Hints - lets XMonad talk to panels
 -- pagerHints: add support for Taffybar's current layout and workspaces hints
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints $ def
+main = xmonad . docks . ewmh $ xfceConfig
   {
     borderWidth = 3
   , handleEventHook = handleEventHook def <+> fullscreenEventHook
