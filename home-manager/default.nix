@@ -88,7 +88,6 @@ let
     
     # xfce panel plugins
     xfce.xfce4-hardware-monitor-plugin
-    xfce.xfce4-mpc-plugin
     xfce.xfce4-battery-plugin
 
     # For clipboard syncing
