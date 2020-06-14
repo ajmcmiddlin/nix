@@ -27,7 +27,7 @@ let
     baobab
     bind
     brightnessctl
-    calibre
+    # calibre
     cifs-utils
     dia
     dmenu
