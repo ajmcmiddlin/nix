@@ -190,7 +190,6 @@ in {
   programs.direnv.enable = true;
   programs.chromium.enable = true;
   programs.firefox.enable = true;
-  programs.fish.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -211,11 +210,6 @@ in {
 
   # Source in .envrc to tell npm to use a packages directory our user owns.
   home.file.".npm-setup".source = ./dot-files/npm-setup;
-
-  home.file.".config/fish/functions" = {
-    source = ./dot-files/config/fish/functions;
-    recursive = true;
-  };
 
   home.file.".spacemacs".source = ./dot-files/spacemacs;
   home.file.".emacs.d" = {
