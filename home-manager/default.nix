@@ -255,6 +255,22 @@ in {
         "editor.wordWrapColumn" = 100;
         "editor.wordWrap" = "wordWrapColumn";
       };
+      "[javascript]" = {
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+      };
+      "[javascriptreact]" = {
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+      };
+      "[typescript]" = {
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+      };
+      "[typescriptreact]" = {
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+      };
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
