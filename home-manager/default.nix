@@ -58,7 +58,6 @@ let
     owncloud-client
     p7zip
     pandoc
-    # paperboy
     pass
     powertop
     python3
@@ -85,11 +84,11 @@ let
     xorg.xev
     xscreensaver
     yubioath-desktop
-    
-    # xfce panel plugins
-    xfce.xfce4-hardware-monitor-plugin
-    xfce.xfce4-battery-plugin
 
+    # Bar + tray
+    haskellPackages.xmobar
+    haskellPackages.libmpd
+    
     # For clipboard syncing
     xsel
     parcellite
@@ -205,6 +204,10 @@ in {
     '';
   };
 
+  home.file.".xmobarrc".source = ./dot-files/xmobarrc;
+  home.file.".stalonetrayrc".source = ./dot-files/stalonetrayrc;
+  services.stalonetray.enable = true;
+
   # Source in .envrc to tell npm to use a packages directory our user owns.
   home.file.".npm-setup".source = ./dot-files/npm-setup;
 
@@ -298,12 +301,6 @@ in {
     maxCacheTtl = 36000;
   };
 
-  # services.screen-locker = {
-  #   enable = true;
-  #   lockCmd = "xlock -mode blank";
-  #   inactiveInterval = 10;
-  # };
-
   systemd.user.services.lorri =
     startupItem {cmd = "${pkgs.lorri}/bin/lorri daemon"; description = "lorri daemon"; };
 
@@ -315,10 +312,7 @@ in {
 
   services.xscreensaver.enable = true;
 
-  services.xembed-sni-proxy.enable = true;
-
   services.pasystray.enable = true;
-  services.status-notifier-watcher.enable = true;
   services.blueman-applet.enable = true;
   # services.flameshot.enable = true;
   # services.unclutter.enable = true;

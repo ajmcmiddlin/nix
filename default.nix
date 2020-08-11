@@ -149,12 +149,7 @@ in
     layout = "us";
     # Needed for home manager now apparently?
     # https://github.com/rycee/home-manager/issues/1116
-    desktopManager = {
-      xfce = {
-        enable = true;
-        enableXfwm = false;
-      };
-    };
+    desktopManager.xterm.enable = true;
     xkbOptions = "ctrl:nocaps";
 
     libinput = {

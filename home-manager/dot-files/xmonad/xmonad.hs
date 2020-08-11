@@ -1,39 +1,49 @@
 import qualified Data.Map                         as M
 import           Data.Monoid                      ((<>))
+import           System.IO                        (hPutStrLn)
 
 import qualified Graphics.X11.Types               as XT
-import           XMonad                           (Layout, ManageHook, Window,
+import           XMonad                           (Layout, ManageHook,
                                                    X, XConfig (..), def,
-                                                   mod4Mask, spawn, windows,
+                                                   mod4Mask, spawn,
                                                    xmonad, (.|.), (|||))
-import           XMonad.Actions.SpawnOn           (manageSpawn, spawnOn)
-import           XMonad.Config.Xfce               (xfceConfig)
+import           XMonad.Hooks.DynamicLog          (dynamicLogWithPP, xmobarColor, shorten, wrap, xmobarPP,
+                                                   PP (ppOutput, ppCurrent, ppVisible, ppLayout, ppTitle))
 import           XMonad.Hooks.EwmhDesktops        (ewmh, fullscreenEventHook)
 import           XMonad.Hooks.ManageDocks         (avoidStruts, docks,
                                                    manageDocks)
 import           XMonad.Hooks.ManageHelpers       (doFullFloat, isFullscreen)
 import           XMonad.Layout.NoBorders          (smartBorders)
-import           XMonad.Layout.ThreeColumns       (ThreeCol (ThreeCol, ThreeColMid))
+import           XMonad.Layout.ThreeColumns       (ThreeCol (ThreeColMid))
 import           XMonad.ManageHook                (appName, className,
                                                    composeAll, doShift, (-->),
                                                    (<+>), (=?))
+import           XMonad.Util.Run                  (spawnPipe) 
+import           XMonad.Util.SpawnOnce            (spawnOnce) 
 
 -- docks: add dock (panel) functionality to your configuration
 -- ewmh: https://en.wikipedia.org/wiki/Extended_Window_Manager_Hints - lets XMonad talk to panels
--- pagerHints: add support for Taffybar's current layout and workspaces hints
 main :: IO ()
-main = xmonad . docks . ewmh $ xfceConfig
-  {
-    borderWidth = 3
-  , handleEventHook = handleEventHook def <+> fullscreenEventHook
-  , keys = myKeys
-  , layoutHook = myLayoutHook
-    -- let XMonad manage docks (taffybar)
-  , manageHook = myManageHook <+> manageDocks <+> manageHook def
-  , terminal = "urxvt"
-  , workspaces = myWorkspaces
-  , modMask = mod4Mask
-  }
+main = do
+  xmobarProc <- spawnPipe "xmobar"
+  xmonad . docks . ewmh $ def
+    {
+      borderWidth = 3
+    , handleEventHook = handleEventHook def <+> fullscreenEventHook
+    , keys = myKeys
+    , layoutHook = myLayoutHook
+    , manageHook = myManageHook <+> manageDocks <+> manageHook def
+    , terminal = "urxvt"
+    , workspaces = myWorkspaces
+    , modMask = mod4Mask
+    , logHook = dynamicLogWithPP $ xmobarPP
+      { ppOutput = hPutStrLn xmobarProc
+      , ppCurrent = xmobarColor "#859900" "" . wrap "[" "]"
+      , ppVisible = xmobarColor "#2aa198" "" . wrap "(" ")"
+      , ppLayout = xmobarColor "#2aa198" ""
+      , ppTitle = xmobarColor "#859900" "" . shorten 50
+      }
+    }
 
 -- Find keys using `xev -event keyboard` and look for the `keysym`.
 -- If `xev` doesn't give you the event, try `xmodmap -pk | grep <foo>`
