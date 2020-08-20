@@ -27,19 +27,6 @@ Config {
                              , "--high"     , "#fb4934"
                              ] 10
 
-        -- -- cpu core temperature monitor
-        -- , Run CoreTemp       [ "--template" , "Temp: <core0>°C <core1>°C"
-        --                      , "--Low"      , "30"        -- units: °C
-        --                      , "--High"     , "80"        -- units: °C
-        --                      , "--low"      , "#b8bb26"
-        --                      , "--normal"   , "#ebdbb2"
-        --                      , "--high"     , "#fb4934"
-        --                      ] 50
-
-        -- -- CPU Frequency
-        -- , Run CpuFreq        [ "--template" , "<cpu0>GHz <cpu1>GHz"
-        --                      ] 10
-
         -- Memory Usage Monitor
         , Run Memory         [ "--template" , "MEM <usedratio>%"
                              , "--Low"      , "20"        -- units: %
