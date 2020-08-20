@@ -259,20 +259,16 @@ in {
         "editor.wordWrap" = "wordWrapColumn";
       };
       "[javascript]" = {
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
       "[javascriptreact]" = {
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
       "[typescript]" = {
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
       "[typescriptreact]" = {
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.perttier-vscode";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
     };
     # TODO: install and test this stuff/add more extensions
