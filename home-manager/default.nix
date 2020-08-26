@@ -82,6 +82,7 @@ let
     which
     xclip
     xorg.xev
+    xournal
     xscreensaver
     yubioath-desktop
 
