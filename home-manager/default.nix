@@ -131,6 +131,7 @@ let
     spotify
     vlc
     unstable.youtube-dl
+    openshot-qt
   ];
 
   recordingPackages = pkgs: with pkgs; [
