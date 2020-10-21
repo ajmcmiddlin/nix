@@ -127,6 +127,8 @@ in
     screenName = "stevie";
   };
 
+  services.gvfs.enable = true;
+
   # Enable yubikey
   services.pcscd.enable = true;
 
