@@ -129,7 +129,7 @@ in
 
   services.gvfs = {
     enable = true;
-    package = lib.mkForce pkgs.gnome3.gvfs;
+    package = pkgs.lib.mkForce pkgs.gnome3.gvfs;
   };
 
   # Enable yubikey
