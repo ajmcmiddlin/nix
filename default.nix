@@ -127,7 +127,10 @@ in
     screenName = "stevie";
   };
 
-  services.gvfs.enable = true;
+  services.gvfs = {
+    enable = true;
+    package = lib.mkForce pkgs.gnome3.gvfs;
+  };
 
   # Enable yubikey
   services.pcscd.enable = true;
