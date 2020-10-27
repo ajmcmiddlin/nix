@@ -117,6 +117,10 @@ in
 
   # List services that you want to enable:
 
+  services.unifi = {
+    enable = true;
+  }
+
   services.synergy.client = {
     enable = true;
     serverAddress = "192.168.1.101";

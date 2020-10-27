@@ -76,7 +76,6 @@ let
     # tor-browser-bundle-bin
     transmission-gtk
     udisks2
-    unifiStable
     upower
     volumeicon
     wget
