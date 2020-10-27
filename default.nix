@@ -119,7 +119,7 @@ in
 
   services.unifi = {
     enable = true;
-  }
+  };
 
   services.synergy.client = {
     enable = true;
