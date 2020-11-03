@@ -119,7 +119,7 @@ in
 
   services.synergy.client = {
     enable = true;
-    serverAddress = "192.168.1.101";
+    serverAddress = "192.168.1.23";
     screenName = "stevie";
   };
 
