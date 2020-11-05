@@ -54,6 +54,7 @@ let
     nethogs
     networkmanagerapplet
     nix-prefetch-scripts
+    nix-du
     obs-studio
     owncloud-client
     p7zip
