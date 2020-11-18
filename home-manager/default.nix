@@ -123,6 +123,8 @@ let
     sublime3
     unstable.teams
     vagrant
+    wireshark
+    wxhexeditor
   ];
 
   mediaPackages = pkgs: with pkgs; [
