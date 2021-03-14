@@ -205,6 +205,9 @@ in {
       ssh-add -l | grep /home/andrew/.ssh/id_rsa > /dev/null || {
         ssh-add
       }
+
+      # Load .profile when bash invoked as sh to get direnv working with VS Code
+      export ENV=~/.profile
     '';
   };
 
