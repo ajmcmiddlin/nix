@@ -14,8 +14,8 @@
   };
 
   boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [pkgs.linuxPackages_latest.v4l2loopback];
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.extraModulePackages = [pkgs.linuxPackages_latest.v4l2loopback];
 
   # LUKS root device
   boot.initrd.luks.devices = {
