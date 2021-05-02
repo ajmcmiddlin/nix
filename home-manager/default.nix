@@ -53,6 +53,7 @@ let
 
     nethogs
     networkmanagerapplet
+    nextcloud-client
     nix-prefetch-scripts
     nix-du
     obs-studio
