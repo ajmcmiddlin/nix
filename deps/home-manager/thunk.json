@@ -1,8 +1,11 @@
 {
   "url": "https://github.com/rycee/home-manager",
-  "ref": "refs/heads/release-20.03",
-  "rev": "a378bccd609c159fa8d421233b9c5eae04f02042",
-  "date": "2020-04-30T09:44:00+02:00",
-  "sha256": "1cfh0aj60qriadvn5xvsp24p1xr06g68m3pfvzwahv2bd2cg261r",
-  "fetchSubmodules": false
+  "ref": "refs/heads/release-20.09",
+  "rev": "2aa20ae969f2597c4df10a094440a66e9d7f8c86",
+  "date": "2021-04-07T15:46:34-04:00",
+  "path": "/nix/store/lhln3za2gkh1myswi41jd7xsy8iagj83-home-manager",
+  "sha256": "0i5fxaxqm53zp767smrn250q1wjywf9c1jmg6vhp28973p7jysah",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }
