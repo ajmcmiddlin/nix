@@ -66,7 +66,6 @@ let
     qtpass
     ranger
     remmina
-    rfkill
     samba
     unstable.signal-desktop
     slop
