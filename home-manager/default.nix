@@ -114,7 +114,6 @@ let
     gnumake
     graphviz
     jq
-    lorri
     nixops
     patchelf
     postgresql
@@ -160,8 +159,6 @@ let
 
 in {
   nixpkgs.overlays = [
-    (import ./home-overlays/direnv)
-    (import ./home-overlays/lorri)
     # (import ./home-overlays/obelisk)
     (import ./home-overlays/spacemacs)
     # (import ./home-overlays/taffybar)
@@ -299,14 +296,13 @@ in {
     maxCacheTtl = 36000;
   };
 
-  systemd.user.services.lorri =
-    startupItem {cmd = "${pkgs.lorri}/bin/lorri daemon"; description = "lorri daemon"; };
-
   systemd.user.services.ownCloud =
     startupItem {cmd = "${pkgs.owncloud-client}/bin/owncloud"; description = "ownCloud daemon";};
 
   systemd.user.services.volumeicon =
     startupItem {cmd = "${pkgs.volumeicon}/bin/volumeicon"; description = "volume tray icon";};
+
+  services.lorri.enable = true;
 
   services.xscreensaver.enable = true;
 
