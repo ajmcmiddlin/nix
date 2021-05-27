@@ -8,38 +8,50 @@ case $1 in
     work)
         output=HDMI-1
         mode_name="1920x1200_60"
-        mode="193.16  1920 2048 2256 2592  1200 1201 1204 1242  -HSync +Vsync"
+        # mode="193.16  1920 2048 2256 2592  1200 1201 1204 1242  -HSync +Vsync"
+        pos=0x0
         laptop_pos=296x1200
         laptop_mode=1280x720
-        pos=0x0
         break
         ;;
     home)
-         output=DP-1
-         mode_name="2560x1440_60"
-         mode="311.83  2560 2744 3024 3488  1440 1441 1444 1490  -HSync +Vsync"
-         laptop_mode=1600x900
-         laptop_pos=480x1440
+         output=HDMI-2
+         mode_name="2560x1440"
+         # mode="311.83  2560 2744 3024 3488  1440 1441 1444 1490  -HSync +Vsync"
          pos=0x0
+         laptop_mode=1280x720
+         laptop_pos=296x1440
          break
          ;;
+    laptop)
+         output=eDP-1
+         laptop_mode=1920x1080
+         laptop_pos=0x0
+         mode_name=$laptop_mode
+         pos=$laptop_pos
+         # mode="311.83  2560 2744 3024 3488  1440 1441 1444 1490  -HSync +Vsync"
+         break
+         ;;
+
     *)
         echo "Unknown layout '${1}'"
         exit 1
         ;;
 esac
 
-xrandr --rmmode $mode_name
-xrandr --newmode  $mode_name $mode
-xrandr --addmode $output $mode_name
+# NOTE: if this script is failing and --rmmode gives errors about BadName or BadAccess
+# then check that the mode isn't added to a different output. If it is, use --delmode
+# to remove it from the output(s), then try again.
+# xrandr --rmmode $mode_name
+# xrandr --newmode  $mode_name $mode
+# xrandr --addmode $output $mode_name
 
 # Turn everything except the laptop display off, then enable the output
 # we took as an argument as the primary display, then setup the laptop
 # underneath it.
-xrandr --output VIRTUAL-1 --off \
-       --output DP-1 --off \
+xrandr --output DP-1 --off \
        --output DP-2 --off \
        --output HDMI-1 --off \
        --output HDMI-2 --off \
-       --output $output --primary --mode $mode_name --pos $pos --rotate normal \
-       --output eDP-1 --mode $laptop_mode --pos $laptop_pos --rotate normal
+       --output eDP-1 --mode $laptop_mode --pos $laptop_pos --rotate normal \
+       --output $output --primary --mode $mode_name --pos $pos --rotate normal
