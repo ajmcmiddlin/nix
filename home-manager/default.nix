@@ -67,6 +67,7 @@ let
     ranger
     remmina
     samba
+    shotwell
     unstable.signal-desktop
     slop
     syncthing
