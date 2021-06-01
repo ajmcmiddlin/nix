@@ -300,6 +300,9 @@ in {
   systemd.user.services.ownCloud =
     startupItem {cmd = "${pkgs.owncloud-client}/bin/owncloud"; description = "ownCloud daemon";};
 
+  systemd.user.services.nextcloud =
+    startupItem {cmd = "${pkgs.nextcloud-client}/bin/nextcloud"; description = "nextcloud daemon";};
+
   systemd.user.services.volumeicon =
     startupItem {cmd = "${pkgs.volumeicon}/bin/volumeicon"; description = "volume tray icon";};
 
