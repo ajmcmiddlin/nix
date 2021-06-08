@@ -270,6 +270,9 @@ in {
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
+      "[elm]" = {
+        "editor.formatOnSave" = true;
+      };
       # We pin our rust compiler to a version from the nix store in each project.
       "rust-client.disableRustup" = true;
     };
