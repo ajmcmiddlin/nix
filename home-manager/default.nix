@@ -275,6 +275,11 @@ in {
       };
       # We pin our rust compiler to a version from the nix store in each project.
       "rust-client.disableRustup" = true;
+
+      "vim.handleKeys" = {
+          "<C-k>" = false;
+          "<C-i>" = false;
+        };
     };
     # TODO: install and test this stuff/add more extensions
     # haskell.enable;
