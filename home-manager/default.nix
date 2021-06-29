@@ -273,6 +273,9 @@ in {
       "[elm]" = {
         "editor.formatOnSave" = true;
       };
+      "[rust]" = {
+        "editor.formatOnSave" = true;
+      };
       # We pin our rust compiler to a version from the nix store in each project.
       "rust-client.disableRustup" = true;
     };
