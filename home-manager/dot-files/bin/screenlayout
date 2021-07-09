@@ -55,3 +55,5 @@ xrandr --output DP-1 --off \
        --output HDMI-2 --off \
        --output eDP-1 --mode $laptop_mode --pos $laptop_pos --rotate normal \
        --output $output --primary --mode $mode_name --pos $pos --rotate normal
+
+systemctl --user restart stalonetray
